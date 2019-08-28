@@ -89,17 +89,17 @@ class TindieOrdersAPI:
         return elem[1]
     def get_last_order(self):
         return self._get_cache_()[0]
-    def average_order_revanue(self, limit = 20):
+    def average_order_revenue(self, limit = 20):
         '''Returns average order payout, including shipping
 Limit is the maximum number of orders to include, newest orders first.'''
         num_orders = 0
-        amt_revanue = 0
+        amt_revenue = 0
         for i in self._get_cache_():
-            amt_revanue += i.seller_payout
+            amt_revenue += i.seller_payout
             num_orders += 1
             if limit!=None and num_orders>=limit:
                 break
-        return amt_revanue/num_orders
+        return amt_revenue/num_orders
     def average_order_shipping(self, limit = 20):
         '''Returns average order shipping cost
 Limit is the maximum number of orders to include, newest orders first.'''
